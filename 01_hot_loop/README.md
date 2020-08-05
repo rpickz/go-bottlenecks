@@ -33,3 +33,24 @@ time ./problem
 ```
 
 You will be provided some time statistics, including a "Real" value - which is the amount of time taken to run the program according to the "wall clock" (or if you were to time this using a stop-watch).
+
+## How do I run the benchmarks?
+
+To run the benchmarks, use the following commands:
+
+```shell script
+cd 01_problem # Or whichever directory you want to benchmark
+go test -bench .
+```
+
+This provides output such as the following:
+
+```shell script
+goos: darwin
+goarch: amd64
+BenchmarkGenerateFileContent-12              356           3320112 ns/op
+PASS
+ok      _/Users/richardpickering/Work/Programming/Golang/Projects/go-bottlenecks/01_hot_loop/02_solution_one_fan_out    1.785s
+```
+
+The above indicates that the benchmark named `BenchmarkGenerateFileContent` ran 356 iterations within the 1 second the benchmark ran.  Each iteration of the benchmark taking `3320112` nanoseconds on average.
